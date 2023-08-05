@@ -1,0 +1,149 @@
+.modal {
+  position: fixed;
+  z-index: 5;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: none;
+
+  &__content {
+    position: relative;
+    background-color: $dull;
+    margin: 10% auto;
+    padding: 40px;
+    border-radius: 30px;
+    max-width: 500px;
+
+    h2 {
+      color: $nero;
+      font-family: "Mulish", "Verdana", sans-serif;
+      font-weight: 700;
+      line-height: 26px;
+      text-align: center;
+
+      margin: 0;
+      margin-bottom: 25px;
+    }
+  }
+
+  &__input-wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 25px;
+  }
+
+  &__input {
+    position: relative;
+
+    input:not([type="checkbox"]) {
+      width: 100%;
+      padding: 6px;
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid $pavlova;
+
+      font-family: $montserrat;
+      font-size: 20px;
+      color: $black;
+
+      &::placeholder {
+        color: $pavlova;
+      }
+    }
+
+    input[type="checkbox"] {
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 1px solid $nero;
+      position: relative;
+
+      &:checked {
+        &::after {
+          content: "";
+          display: block;
+          width: 15px;
+          height: 8px;
+
+          border: 1px solid $nero;
+          border-top: none;
+          border-right: none;
+          transform: rotate(-45deg);
+
+          position: absolute;
+          top: 2px;
+          left: 2px;
+        }
+      }
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    span {
+      color: $nero;
+
+      @media (max-width: $mobile) {
+        font-size: 10px;
+        line-height: normal;
+      }
+    }
+
+    & .error-message {
+      position: absolute;
+      left: 0;
+      bottom: -25px;
+      color: #ff0000;
+    }
+  }
+
+  &__close-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: transparent;
+
+    cursor: pointer;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      width: 30px;
+      height: 2px;
+      background-color: $nero;
+      transform: rotate(45deg);
+
+      position: absolute;
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+
+    &:hover {
+      &::before,
+      &::after {
+        background-color: $pavlova;
+      }
+    }
+
+    &:active {
+      &::before,
+      &::after {
+        height: 0;
+        transform: rotate(720deg);
+        transition: all 0.3s ease-in;
+      }
+    }
+  }
+}

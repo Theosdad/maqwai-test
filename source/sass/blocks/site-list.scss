@@ -1,0 +1,47 @@
+.site-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  @media (max-width: $tablet) {
+    gap: 5px;
+  }
+
+  &__item {
+    a {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 150%;
+      text-transform: uppercase;
+      display: inline-block;
+      padding: 10px 15px;
+
+      @media (max-width: $tablet) {
+        font-size: 36px;
+        color: $nero;
+        text-shadow: 1px 1px 0 $grey, 1px -1px 0 $grey, -1px 1px 0 $grey, -1px -1px 0 $grey;
+        padding: 5px;
+      }
+
+      @media (max-width: $mobile) {
+        font-size: 20px;
+      }
+
+      &:hover {
+        color: $pavlova;
+        filter: drop-shadow(0 0 3px $pavlova);
+      }
+
+      &:focus {
+        @media (hover: hover) {
+          filter: drop-shadow(0 0 8px $pavlova);
+          transition: all 0.5s ease-in-out;
+        }
+      }
+    }
+  }
+}

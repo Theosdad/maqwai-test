@@ -1,0 +1,46 @@
+.button {
+  background-color: $pavlova;
+  border: 1px solid $pavlova;
+  color: $white;
+  font-family: $montserrat;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 150%;
+  text-transform: uppercase;
+  transform: skewX(-17deg);
+  position: relative;
+  padding: 20px 68px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 6px;
+    height: 100%;
+    background-color: $white;
+    transition: all 0.5s ease-in;
+    position: absolute;
+    right: -12px;
+    top: 0;
+  }
+
+  &:focus,
+  &:hover {
+    background-color: transparent;
+    color: $pavlova;
+    transition: all 0.5s ease-in;
+
+    &::after {
+      right: -6px;
+      transform: rotate(720deg);
+      transition: all 0.5s ease-in;
+    }
+  }
+
+  span {
+    display: block;
+    transform: skewX(17deg);
+  }
+}
